@@ -30,37 +30,42 @@ body {
 
 .home::after {
   position: absolute;
-  inset: auto 0 0 0;
-  height: 42vh;
-  background: linear-gradient(18deg, rgba(0, 0, 0, 0.56), transparent 58%);
+  inset: 0;
+  background:
+    radial-gradient(circle at 50% 52%, rgba(0, 0, 0, 0.42), transparent 24rem),
+    linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.16) 100%);
   content: "";
   pointer-events: none;
 }
 
 .contact {
   position: absolute;
-  left: clamp(1rem, 3vw, 2.5rem);
-  bottom: clamp(1rem, 3vw, 2.5rem);
+  left: 50%;
+  top: 52%;
+  transform: translate(-50%, -50%);
   z-index: 3;
   display: grid;
-  gap: 0.28rem;
+  justify-items: center;
+  gap: 0.4rem;
   color: var(--ink);
+  text-align: center;
   text-shadow: 0 1px 20px var(--shadow), 0 0 2px rgba(0, 0, 0, 0.36);
 }
 
 h1 {
   margin: 0;
   font: inherit;
-  font-size: clamp(1.05rem, 1.45vw, 1.28rem);
+  font-size: clamp(1.7rem, 3.1vw, 3.2rem);
   font-weight: 500;
-  line-height: 1.2;
+  line-height: 1.05;
   letter-spacing: 0.01em;
+  white-space: nowrap;
 }
 
 a {
   width: fit-content;
   color: var(--muted);
-  font-size: clamp(1rem, 1.35vw, 1.18rem);
+  font-size: clamp(1rem, 1.45vw, 1.35rem);
   line-height: 1.2;
   text-decoration-color: rgba(246, 240, 231, 0.42);
   text-decoration-thickness: 1px;
@@ -98,8 +103,8 @@ a:focus-visible {
 
 @media (max-width: 44rem) {
   .contact {
-    left: 1rem;
-    bottom: 1rem;
+    top: 50%;
+    width: min(100% - 2rem, 24rem);
   }
 
   .photos {
@@ -114,6 +119,10 @@ a:focus-visible {
 
   .photos img:first-child {
     object-position: center center;
+  }
+
+  h1 {
+    white-space: normal;
   }
 }
 

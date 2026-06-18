@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Contact Arnor by email.">
+    <meta name="theme-color" content="#f7f4ee">
+    <title>Arnor</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="contact" aria-labelledby="page-title">
+      <img class="mark" src="mark.svg" alt="" aria-hidden="true">
+
+      <section class="intro">
+        <p class="kicker">Arnor</p>
+        <h1 id="page-title">Email is best.</h1>
+        <a class="email" href="mailto:arnor@arnor.cc">arnor@arnor.cc</a>
+      </section>
+
+      <button class="copy" type="button" data-email="arnor@arnor.cc">
+        Copy email
+      </button>
+    </main>
+
+    <script>
+      const button = document.querySelector(".copy");
+
+      button.addEventListener("click", async () => {
+        const email = button.dataset.email;
+
+        try {
+          await navigator.clipboard.writeText(email);
+          button.textContent = "Copied";
+        } catch {
+          window.location.href = `mailto:${email}`;
+        }
+
+        window.setTimeout(() => {
+          button.textContent = "Copy email";
+        }, 1800);
+      });
+    </script>
+  </body>
+</html>

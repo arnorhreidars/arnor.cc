@@ -1,8 +1,8 @@
 :root {
-  color-scheme: light;
-  --paper: #f4f1ec;
-  --ink: #111;
-  --muted: rgba(17, 17, 17, 0.68);
+  color-scheme: dark;
+  --ink: #f7f4ef;
+  --muted: rgba(247, 244, 239, 0.72);
+  --shadow: rgba(0, 0, 0, 0.34);
 }
 
 * {
@@ -17,42 +17,43 @@ body {
   min-height: 100vh;
   margin: 0;
   color: var(--ink);
-  background: var(--paper);
+  overflow: hidden;
+  background: #0d0d0d;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   letter-spacing: 0;
 }
 
 .home {
   min-height: 100vh;
+  position: relative;
 }
 
 .contact {
-  position: fixed;
-  top: clamp(1.25rem, 4vw, 3rem);
-  left: clamp(1.25rem, 4vw, 3rem);
+  position: absolute;
+  left: clamp(1rem, 3vw, 2.5rem);
+  bottom: clamp(1rem, 3vw, 2.5rem);
   z-index: 2;
   display: grid;
-  gap: 0.22rem;
-  padding: 0.55rem 0.65rem;
-  background: rgba(244, 241, 236, 0.72);
-  backdrop-filter: blur(18px);
+  gap: 0.18rem;
+  color: var(--ink);
+  text-shadow: 0 1px 18px var(--shadow);
 }
 
 h1 {
   margin: 0;
   font: inherit;
-  font-size: clamp(1rem, 1.6vw, 1.25rem);
+  font-size: clamp(0.92rem, 1.25vw, 1.08rem);
   font-weight: 400;
-  line-height: 1.25;
+  line-height: 1.2;
   letter-spacing: 0;
 }
 
 a {
   width: fit-content;
   color: var(--muted);
-  font-size: clamp(1rem, 1.6vw, 1.25rem);
-  line-height: 1.25;
-  text-decoration-color: rgba(17, 17, 17, 0.25);
+  font-size: clamp(0.92rem, 1.25vw, 1.08rem);
+  line-height: 1.2;
+  text-decoration-color: rgba(247, 244, 239, 0.3);
   text-decoration-thickness: 1px;
   text-underline-offset: 0.18em;
 }
@@ -64,11 +65,11 @@ a:focus-visible {
 }
 
 .photos {
-  min-height: 100vh;
+  height: 100vh;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 0.72fr);
+  grid-template-columns: 1fr 1fr;
   gap: 1px;
-  background: var(--paper);
+  background: #111;
 }
 
 .photos img {
@@ -79,29 +80,31 @@ a:focus-visible {
 }
 
 .photos img:first-child {
-  object-position: center center;
+  object-position: center bottom;
 }
 
 .photos img:last-child {
-  object-position: 50% 62%;
+  object-position: 50% 52%;
 }
 
 @media (max-width: 44rem) {
   .contact {
-    position: static;
-    padding: 1rem;
-    background: var(--paper);
-    backdrop-filter: none;
+    left: 1rem;
+    bottom: 1rem;
   }
 
   .photos {
-    min-height: auto;
+    height: 100vh;
     grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
   }
 
   .photos img {
-    height: auto;
-    min-height: 42vh;
+    height: 50vh;
+  }
+
+  .photos img:first-child {
+    object-position: center center;
   }
 }
 

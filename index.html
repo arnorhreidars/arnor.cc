@@ -3,54 +3,22 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Arnor Hreidarsson. Email is best.">
-    <meta name="theme-color" content="#111111">
+    <meta name="description" content="Arnór Hreiðarsson - arnor@arnor.cc">
+    <meta name="theme-color" content="#f4f1ec">
     <title>Arnór Hreiðarsson</title>
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <div class="backdrop" aria-hidden="true"></div>
+    <main class="home" aria-labelledby="name">
+      <section class="contact" aria-label="Contact">
+        <h1 id="name">Arnór Hreiðarsson</h1>
+        <a href="mailto:arnor@arnor.cc">arnor@arnor.cc</a>
+      </section>
 
-    <header class="site-header">
-      <a class="identity" href="mailto:arnor@arnor.cc">
-        Arnór Hreiðarsson - arnor@arnor.cc
-      </a>
-    </header>
-
-    <main class="contact" aria-labelledby="page-title">
-      <p class="eyebrow">arnor.cc</p>
-      <h1 id="page-title">Email is best.</h1>
-
-      <div class="actions" aria-label="Contact options">
-        <a class="email" href="mailto:arnor@arnor.cc">arnor@arnor.cc</a>
-        <button class="copy" type="button" data-email="arnor@arnor.cc" aria-label="Copy arnor@arnor.cc">
-          Copy
-        </button>
-      </div>
+      <section class="photos" aria-label="Photographs">
+        <img src="assets/red-hill.jpg" alt="Red volcanic hillside under a pale sky.">
+        <img src="assets/black-rock.jpg" alt="Black rock formation under a bright sky.">
+      </section>
     </main>
-
-    <footer class="site-footer">
-      <span>Reykjavík</span>
-      <span>Plain email, no funnel.</span>
-    </footer>
-
-    <script>
-      const button = document.querySelector(".copy");
-
-      button.addEventListener("click", async () => {
-        const email = button.dataset.email;
-
-        try {
-          await navigator.clipboard.writeText(email);
-          button.textContent = "Copied";
-        } catch {
-          window.location.href = `mailto:${email}`;
-        }
-
-        window.setTimeout(() => {
-          button.textContent = "Copy";
-        }, 1800);
-      });
-    </script>
   </body>
 </html>
